@@ -1,1142 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ms - Personal Portfolio</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Mohanasundaram N — .NET Full-Stack Developer | Team Lead | AI-Driven Engineer</title>
+<meta name="description" content="Senior .NET Full-Stack Developer and Team Lead architecting scalable enterprise applications with AI-assisted engineering workflows." />
+<meta name="author" content="Mohanasundaram N" />
+<meta name="keywords" content="Mohanasundaram N, .NET Developer, Full Stack, Team Lead, AI Engineer, Enterprise Applications, ASP.NET, SQL Server, React, Azure DevOps" />
 
-  <!--
-    - favicon
-  -->
-  <link rel="shortcut icon" href="./logo.ico" type="image/x-icon">
+<meta property="og:title" content="Mohanasundaram N — .NET Full-Stack Developer & AI-Driven Engineer" />
+<meta property="og:description" content="Architecting scalable enterprise systems with AI-assisted development workflows." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+<link rel="stylesheet" href="style.css" />
 </head>
+<body class="bg-[#05060a] text-slate-200 font-[Inter] antialiased overflow-x-hidden">
 
-<body>
+<!-- Loading Screen -->
+<div id="loader" class="fixed inset-0 z-[100] flex items-center justify-center bg-[#05060a]">
+  <div class="text-center">
+    <div class="loader-ring mx-auto"></div>
+    <p class="mt-6 font-mono text-xs tracking-[0.4em] text-cyan-300/80">INITIALIZING SYSTEM</p>
+  </div>
+</div>
 
-  <!--
-    - #MAIN
-  -->
+<!-- Cursor Glow -->
+<div id="cursor-glow"></div>
 
-  <main>
+<!-- Scroll Progress -->
+<div id="scroll-progress"></div>
 
-    <!--
-      - #SIDEBAR
-    -->
+<!-- Particle Canvas -->
+<canvas id="particles" class="fixed inset-0 -z-10"></canvas>
 
-    <aside class="sidebar" data-sidebar>
+<!-- Animated Gradient Backdrop -->
+<div class="fixed inset-0 -z-20 pointer-events-none">
+  <div class="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full bg-cyan-500/20 blur-[140px] animate-blob"></div>
+  <div class="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full bg-fuchsia-500/15 blur-[160px] animate-blob animation-delay-2000"></div>
+  <div class="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full bg-violet-600/15 blur-[140px] animate-blob animation-delay-4000"></div>
+</div>
 
-      <div class="sidebar-info">
+<!-- NAV -->
+<nav id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center justify-between">
+    <a href="#hero" class="flex items-center gap-2 group">
+      <div class="h-9 w-9 rounded-lg bg-gradient-to-br from-cyan-400 to-fuchsia-500 flex items-center justify-center font-bold text-black font-[Space_Grotesk]">M</div>
+      <span class="font-[Space_Grotesk] font-semibold tracking-tight text-white">Mohanasundaram<span class="text-cyan-400">.</span></span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+      <li><a class="nav-link" href="#about">About</a></li>
+      <li><a class="nav-link" href="#skills">Skills</a></li>
+      <li><a class="nav-link" href="#experience">Experience</a></li>
+      <li><a class="nav-link" href="#projects">Projects</a></li>
+      <li><a class="nav-link" href="#ai">AI Workflow</a></li>
+      <li><a class="nav-link" href="#contact">Contact</a></li>
+    </ul>
+    <a href="assets/Mohanasundaram_N_Resume.pdf" download class="hidden md:inline-flex magnetic items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 text-sm">
+      <i data-lucide="download" class="w-4 h-4"></i> Resume
+    </a>
+    <button id="menu-btn" class="md:hidden text-white"><i data-lucide="menu"></i></button>
+  </div>
+  <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#05060a]/95 backdrop-blur">
+    <div class="px-6 py-4 flex flex-col gap-4 text-sm">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#experience">Experience</a>
+      <a href="#projects">Projects</a><a href="#ai">AI Workflow</a><a href="#contact">Contact</a>
+      <a href="assets/Mohanasundaram_N_Resume.pdf" download class="text-cyan-400">Download Resume</a>
+    </div>
+  </div>
+</nav>
 
-        <figure class="avatar-box">
-          <img src="./my-avatar.png" alt="Mohanasundaram Nagaraj" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Mohanasundaram Nagaraj">Mohanasundaram Nagaraj</h1>
-
-          <p class="title">.Net Full Stack developer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
+<!-- HERO -->
+<section id="hero" class="relative min-h-screen flex items-center pt-28 pb-20 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7">
+      <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/5 text-xs font-mono text-cyan-300 mb-6 hero-fade">
+        <span class="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+        AVAILABLE FOR ENTERPRISE PROJECTS
+      </div>
+      <h1 class="font-[Space_Grotesk] font-bold text-5xl md:text-7xl lg:text-[5.5rem] leading-[1.02] tracking-tight text-white hero-title">
+        Architecting<br/>
+        <span class="bg-gradient-to-r from-cyan-300 via-fuchsia-400 to-violet-400 bg-clip-text text-transparent">scalable systems</span><br/>
+        with AI precision.
+      </h1>
+      <p class="mt-7 text-lg text-slate-400 max-w-2xl hero-fade">
+        I'm <span class="text-white font-medium">Mohanasundaram N</span> — a .NET Full-Stack Developer, Team Lead, and AI-Driven Engineer with 4+ years building enterprise-grade HRMS, procurement, supply chain, and analytics platforms.
+      </p>
+      <div class="mt-10 flex flex-wrap gap-4 hero-fade">
+        <a href="#projects" class="magnetic group relative inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-black font-semibold text-sm shadow-[0_0_40px_-10px_rgba(34,211,238,0.7)]">
+          View My Projects <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+        </a>
+        <a href="assets/Mohanasundaram_N_Resume.pdf" download class="magnetic inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/15 hover:border-cyan-400/50 hover:bg-white/5 text-sm transition">
+          <i data-lucide="download" class="w-4 h-4"></i> Download Resume
+        </a>
       </div>
 
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a title="itzmohansmail@gmail.com" href="mailto:itzmohansmail@gmail.com" class="contact-link">itzmohansmail@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+919025087582" class="contact-link">+91 90250 87582</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="2000-05-12">May 12, 2000</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address> Erode, TN</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/mohanasundaram-nagaraj-b070792b3/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/MohanasundaramNagaraj" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://stackoverflow.com/users/23381129/mohanasundaramnagaraj" class="social-link">
-              <ion-icon name="logo-stackoverflow"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
+      <div class="mt-14 grid grid-cols-2 md:grid-cols-4 gap-6 hero-fade">
+        <div><div class="font-[Space_Grotesk] text-3xl font-bold text-white" data-counter="4">0</div><div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Years Exp</div></div>
+        <div><div class="font-[Space_Grotesk] text-3xl font-bold text-white" data-counter="15">0</div><div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Enterprise Apps</div></div>
+        <div><div class="font-[Space_Grotesk] text-3xl font-bold text-white" data-counter="6">0</div><div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Domains</div></div>
+        <div><div class="font-[Space_Grotesk] text-3xl font-bold text-white" data-counter="2">0</div><div class="text-xs uppercase tracking-widest text-slate-500 mt-1">Awards 2024</div></div>
       </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link style="display: none;">Blog</button>
-          </li>
-
-          <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
-          </li>
-
-        </ul>
-
-      </nav>
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-              Detail-oriented and results-driven .Net Full Stack Developer with an hands-on experience in
-            Spark IT Tech, contributing to the successful development and deployment of diverse projects
-            such as 
-              Supplier Chain Management, 
-              Power BI, 
-              Online Ordering Portal (Ecommerce), 
-              Evoucher and
-              Employee Tracking Applications.
-          </p>
-          <p>
-              Proficient in utilizing .Net Core to deliver high-quality software solutions. 
-            Seeking a challenging role as a
-            .Net Developer in a dynamic company to leverage my skills and contribute to innovative projects.
-          </p>
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">Service</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web design</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./icon-dev.svg" alt="Web development icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Web development</h4>
-
-                <p class="service-item-text">
-                  High-quality development of sites at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile Web apps</h4>
-
-                <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
-                </p>
-              </div>
-
-            </li>
-
-            <!-- <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title"></h4>
-
-                <p class="service-item-text">
-                 
-                </p>
-              </div>
-
-            </li> -->
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials"> 
-          <ul class="testimonials-list has-scrollbar">
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Show & Download My Resume</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  
-                </div>
-
-              </div>
-            </li>
-            <!-- <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Daniel lewis</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Jessica miller</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li> -->
-
-            <!-- <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Emily evans</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                    lot of experience
-                    and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                    consectetur adipiscing
-                    elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                  </p>
-                </div>
-
-              </div>
-            </li> -->
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./avatar-1.png" alt="" width="80" data-modal-img>
-              </figure>
-
-              <img src="./icon-quote.svg" alt="">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title style="display: none;"></h4>
-
-              <time datetime=""></time>
-
-              <div data-modal-text>
-                
-              </div>
-
-            </div>
-            <div class="modal-footer" style="margin-right: 20px;margin-top: 20px;">
-              <a href="./Resume.pdf" download="" class="form-btn">Show Resume</a>
-            </div>
-           
-          </section>
-
-        </div>
-      </article>
-      <!--
-        - #RESUME
-      -->
-
-      <article class="resume" data-page="resume">
-
-        <header>
-          <h2 class="h2 article-title">Experience</h2>
-        </header>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">MP Nachimuthu M Jaganathan Engineering College</h4>
-
-              <span>2017 — 2021</span>
-
-              <p class="timeline-text">
-                Bachelor Of Engineering - Electronics and Communication Engineering
-              </p>
-
-            </li>
-          </ol>
-
-        </section>
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Experience</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Spark IT Tech</h4>
-
-              <span>2021 — Current</span>
-
-              <p class="timeline-text">
-                .Net Full Stack Developer
-              </p>
-
-            </li>
-          </ol>
-
-        </section>
-
-        <section class="timeline">
-
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-
-            <h3 class="h3">Projects</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Supplier Chain Management System & Workflow Engine</h4>
-
-              <span>November 2021 - June 2022</span>
-
-              <p class="timeline-text">
-                Designed and developed a robust system to streamline supplier chain processes, improving efficiency by 20%.
-              </p>
-
-            </li>
-              <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Smart Documents</h4>
-
-              <span>Decmeber 2021 - February 2022</span>
-
-              <p class="timeline-text">
-                To enhance document creation, management, and automation processes. 
-                Seeking a role where I can utilize my expertise in smart documents to streamline workflows, improve efficiency
-                and drive organizational success.
-            </p>
-
-            </li>
-             <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Evoucher System</h4>
-
-              <span>June 2022 - August 2022</span>
-
-              <p class="timeline-text">
-                Implemented an electronic voucher system, reducing paper usage and improving the voucher distribution process.
-              </p>
-
-            </li>
-
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Online Ordering Portal (Ecommerce)</h4>
-
-              <span>August 2022 - October 2023</span>
-
-              <p class="timeline-text">
-                Led the development of a user-friendly and secure online ordering portal, contributing to a 30% increase in online sales.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">OOP Back Office</h4>
-
-              <span>August 2022 - October 2023</span>
-
-              <p class="timeline-text">
-                Allow administrators to view, manage, and track orders in real-time, with features for order status updates, order cancellation, and order history.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Power BI Integration</h4>
-
-              <span>October 2023 - January 2024</span>
-
-              <p class="timeline-text">
-                Integrated Power BI for data visualization, providing actionable insights to stakeholders.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Employee Tracking Application</h4>
-
-              <span>January 2024 - Febrauray 2024</span>
-
-              <p class="timeline-text">
-                Developed a comprehensive employee tracking application, enhancing HR processes and employee management.
-              </p>
-
-            </li>
-            <li class="timeline-item">
-
-              <h4 class="h4 timeline-item-title">Vendor Portal</h4>
-
-              <span>Febrauray 2024 - Current</span>
-
-              <p class="timeline-text">
-                To streamline communication, procurement, and collaboration with suppliers. 
-                Features include user authentication, vendor registration, product catalogs, procurement workflows, document management,
-                and reporting. Integration with existing 
-                systems ensures seamless data exchange, enhancing efficiency and transparency in vendor management.
-              </p>
-
-            </li>
-
-          </ol>
-
-        </section>
-
-        <section class="skill">
-
-          <h3 class="h3 skills-title">My skills</h3>
-
-          <ul class="skills-list content-card">
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Front End Development</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Server Side - SQL Server</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">BackEnd - .NET Core & ASP.NET MVC,C#, REST APIs</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">Version Control - Git, TFS</h5>
-                <data value="80">80%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-
-            </li>
-            <li class="skills-item">
-
-              <div class="title-wrapper">
-                <h5 class="h5">UI-UX Design</h5>
-                <data value="90">90%</data>
-              </div>
-
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-      <!--
-        - #PORTFOLIO
-      -->
-
-      <article class="portfolio" data-page="portfolio">
-
-        <header>
-          <h2 class="h2 article-title">Portfolio</h2>
-        </header>
-
-        <section class="projects">
-
-          <ul class="filter-list" style="display: none;">
-
-            <li class="filter-item">
-              <button class="active" data-filter-btn>All</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web design</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Applications</button>
-            </li>
-
-            <li class="filter-item">
-              <button data-filter-btn>Web development</button>
-            </li>
-
-          </ul>
-
-          <div class="filter-select-box" style="display: none;">
-
-            <button class="filter-select" data-select>
-
-              <div class="select-value" data-selecct-value>Select category</div>
-
-              <div class="select-icon">
-                <ion-icon name="chevron-down"></ion-icon>
-              </div>
-
-            </button>
-
-            <ul class="select-list">
-
-              <li class="select-item">
-                <button data-select-item>All</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web design</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Applications</button>
-              </li>
-
-              <li class="select-item">
-                <button data-select-item>Web development</button>
-              </li>
-
-            </ul>
-
-          </div>
-
-          <ul class="project-list">
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-1.jpg" alt="finance" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Supplier Chain Management System & Workflow Engine</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-2.png" alt="orizon" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Smart Documents</h3>
-
-              </a>
-            </li>
-
-           
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-4.png" alt="brawlhalla" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Evoucher System</h3>
-
-              </a>
-            </li>
-
-            
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-7.png" alt="summary" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Online Ordering Portal (Ecommerce)</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="applications">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-8.jpg" alt="task manager" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Power BI Integration</h3>
-
-              </a>
-            </li>
-
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-9.png" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Employee Tracking Application</h3>
-
-              </a>
-            </li>
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
-
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
-
-                  <img src="./project-3.jpg" alt="arrival" loading="lazy">
-                </figure>
-
-                <h3 class="project-title">Vendor Portal</h3>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-      <!--
-        - #BLOG
-      -->
-
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article>
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3914.1966584178817!2d77.58860711081721!3d11.173070288954952!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTHCsDEwJzIzLjEiTiA3N8KwMzUnMjguMyJF!5e0!3m2!1sen!2sin!4v1708446100986!5m2!1sen!2sin" 
-            width="400" height="300"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
     </div>
 
-  </main>
-  <!--
-    - custom js link
-  -->
-  <script src="./script.js"></script>
+    <div class="lg:col-span-5 hero-fade">
+      <div class="relative">
+        <div class="absolute -inset-1 bg-gradient-to-r from-cyan-400/40 via-fuchsia-500/30 to-violet-500/40 rounded-2xl blur-2xl opacity-60"></div>
+        <div class="relative rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-6 font-mono text-xs">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="h-3 w-3 rounded-full bg-red-500/80"></span>
+            <span class="h-3 w-3 rounded-full bg-yellow-500/80"></span>
+            <span class="h-3 w-3 rounded-full bg-green-500/80"></span>
+            <span class="ml-3 text-slate-500">engineer.cs</span>
+          </div>
+<pre class="text-slate-300 leading-relaxed"><span class="text-fuchsia-400">public class</span> <span class="text-cyan-300">Engineer</span> {
+  <span class="text-fuchsia-400">public string</span> Name => <span class="text-emerald-300">"Mohanasundaram N"</span>;
+  <span class="text-fuchsia-400">public string</span> Role => <span class="text-emerald-300">"Team Lead | .NET"</span>;
+  <span class="text-fuchsia-400">public int</span>    Years => <span class="text-amber-300">4</span>;
+  <span class="text-fuchsia-400">public string[]</span> Stack => <span class="text-fuchsia-400">new</span>[]{
+    <span class="text-emerald-300">".NET Core"</span>, <span class="text-emerald-300">"C#"</span>,
+    <span class="text-emerald-300">"SQL Server"</span>, <span class="text-emerald-300">"REST APIs"</span>,
+    <span class="text-emerald-300">"AI Workflows"</span>
+  };
+  <span class="text-fuchsia-400">public</span> <span class="text-cyan-300">Result</span> Build() =>
+     <span class="text-fuchsia-400">new</span>() { Scalable = <span class="text-amber-300">true</span>, Optimized = <span class="text-amber-300">true</span> };
+}</pre>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 text-xs flex flex-col items-center gap-2 animate-bounce">
+    <span class="font-mono tracking-widest">SCROLL</span>
+    <i data-lucide="chevron-down" class="w-4 h-4"></i>
+  </div>
+</section>
 
+<!-- ABOUT -->
+<section id="about" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4" data-aos="fade-up">
+      <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// ABOUT</p>
+      <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white leading-tight">Engineering meets <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-fuchsia-400">intelligence</span>.</h2>
+    </div>
+    <div class="lg:col-span-8 space-y-6 text-slate-400 text-lg leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+      <p>I'm a passionate <span class="text-white">.NET Full-Stack Developer and Team Lead</span> specializing in enterprise application development, workflow automation, backend architecture, and performance optimization.</p>
+      <p>Over the past 4+ years I've shipped HRMS platforms, procurement systems, supply chain solutions, analytics dashboards, workforce tracking apps, and business automation tools — applying <span class="text-cyan-300">SOLID principles</span>, clean architecture, and <span class="text-fuchsia-300">AI-assisted workflows</span> to accelerate delivery.</p>
+      <p>Beyond shipping code, I mentor developers, lead technical planning, conduct code reviews, and raise the bar on engineering productivity and software quality.</p>
+      <div class="grid sm:grid-cols-2 gap-4 pt-4">
+        <div class="glass-card p-5"><i data-lucide="server" class="w-5 h-5 text-cyan-400 mb-3"></i><h4 class="text-white font-semibold">Backend Architect</h4><p class="text-sm text-slate-500 mt-1">Scalable .NET Core systems & APIs</p></div>
+        <div class="glass-card p-5"><i data-lucide="users" class="w-5 h-5 text-fuchsia-400 mb-3"></i><h4 class="text-white font-semibold">Team Lead</h4><p class="text-sm text-slate-500 mt-1">Mentoring & technical planning</p></div>
+        <div class="glass-card p-5"><i data-lucide="cpu" class="w-5 h-5 text-violet-400 mb-3"></i><h4 class="text-white font-semibold">AI-Driven Engineer</h4><p class="text-sm text-slate-500 mt-1">Claude Code & Copilot workflows</p></div>
+        <div class="glass-card p-5"><i data-lucide="zap" class="w-5 h-5 text-amber-300 mb-3"></i><h4 class="text-white font-semibold">Performance Expert</h4><p class="text-sm text-slate-500 mt-1">Query & system optimization</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// TECH STACK</p>
+      <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white">Technologies I work with</h2>
+      <p class="text-slate-400 mt-4 max-w-2xl mx-auto">Production-grade tools across backend, frontend, data, AI, and DevOps.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid"></div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-20" data-aos="fade-up">
+      <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// JOURNEY</p>
+      <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white">Experience Timeline</h2>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto">
+      <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-cyan-400/60 via-fuchsia-500/40 to-transparent"></div>
+
+      <div class="timeline-item md:grid md:grid-cols-2 md:gap-12 mb-16" data-aos="fade-up">
+        <div class="md:text-right md:pr-12">
+          <span class="font-mono text-xs text-cyan-400">2021 — PRESENT</span>
+          <h3 class="font-[Space_Grotesk] text-2xl font-bold text-white mt-2">Team Lead & .NET Full-Stack Developer</h3>
+          <p class="text-fuchsia-300 mt-1">Spark IT Tech</p>
+        </div>
+        <div class="md:pl-12 mt-4 md:mt-0">
+          <ul class="text-slate-400 space-y-2 text-sm">
+            <li>• Leading multiple developers across concurrent enterprise projects</li>
+            <li>• Architecting scalable business applications & APIs</li>
+            <li>• AI-assisted dev workflows with Claude Code</li>
+            <li>• Code reviews, SOLID enforcement, mentoring</li>
+            <li>• Backend & database performance optimization</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item md:grid md:grid-cols-2 md:gap-12 mb-16" data-aos="fade-up">
+        <div class="md:text-right md:pr-12 md:col-start-1">
+          <span class="font-mono text-xs text-cyan-400">EDUCATION</span>
+          <h3 class="font-[Space_Grotesk] text-2xl font-bold text-white mt-2">B.E — Electronics & Communication</h3>
+          <p class="text-fuchsia-300 mt-1">MPNMJ Engineering College · CGPA 8.82</p>
+        </div>
+        <div class="md:pl-12 mt-4 md:mt-0">
+          <p class="text-slate-400 text-sm">Final-year project: Real-Time Android-Based Student Management System for student records, communication & academic management.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6" data-aos="fade-up">
+      <div>
+        <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// WORK</p>
+        <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white">Featured Enterprise Projects</h2>
+      </div>
+      <p class="text-slate-400 max-w-md">Production systems across HR, procurement, supply chain, analytics & workforce domains.</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6" id="projects-grid"></div>
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16" data-aos="fade-up">
+      <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// RECOGNITION</p>
+      <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white">Achievements & Awards</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="glass-card p-8 relative overflow-hidden group" data-aos="fade-up">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-amber-400/20 blur-3xl group-hover:bg-amber-400/30 transition"></div>
+        <i data-lucide="trophy" class="w-10 h-10 text-amber-300 relative"></i>
+        <h3 class="text-2xl font-[Space_Grotesk] font-bold text-white mt-4 relative">Top Performer of the Year</h3>
+        <p class="text-amber-300 text-sm mt-1 relative">2024</p>
+        <p class="text-slate-400 mt-3 relative">Awarded for consistent excellence in project delivery, technical leadership, and team management.</p>
+      </div>
+      <div class="glass-card p-8 relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+        <div class="absolute -top-12 -right-12 w-40 h-40 rounded-full bg-fuchsia-400/20 blur-3xl group-hover:bg-fuchsia-400/30 transition"></div>
+        <i data-lucide="sparkles" class="w-10 h-10 text-fuchsia-300 relative"></i>
+        <h3 class="text-2xl font-[Space_Grotesk] font-bold text-white mt-4 relative">Innovator of the Year</h3>
+        <p class="text-fuchsia-300 text-sm mt-1 relative">2024</p>
+        <p class="text-slate-400 mt-3 relative">Recognized for pioneering AI-assisted development workflows and performance optimization strategies.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI WORKFLOW -->
+<section id="ai" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div data-aos="fade-right">
+        <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4">// AI-ASSISTED ENGINEERING</p>
+        <h2 class="font-[Space_Grotesk] text-4xl md:text-5xl font-bold text-white leading-tight">Engineering at the speed of <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-fuchsia-400">thought</span>.</h2>
+        <p class="text-slate-400 mt-6 text-lg">I integrate Claude Code, GitHub Copilot, and prompt engineering into daily delivery — accelerating code generation, reviews, refactoring, and documentation without compromising architectural quality.</p>
+        <div class="mt-8 space-y-3">
+          <div class="flex items-center gap-3 text-slate-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i> AI-augmented code reviews & refactors</div>
+          <div class="flex items-center gap-3 text-slate-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i> Prompt engineering for engineering productivity</div>
+          <div class="flex items-center gap-3 text-slate-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i> Vibe coding for rapid prototyping</div>
+          <div class="flex items-center gap-3 text-slate-300"><i data-lucide="check-circle-2" class="w-5 h-5 text-cyan-400"></i> Workflow automation & documentation</div>
+        </div>
+      </div>
+      <div data-aos="fade-left" class="relative">
+        <div class="glass-card p-8">
+          <p class="font-mono text-xs text-cyan-400 mb-4">ENGINEERING PHILOSOPHY</p>
+          <blockquote class="text-2xl md:text-3xl font-[Space_Grotesk] text-white leading-snug">
+            "Engineering scalable solutions with <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-fuchsia-400">performance, precision, and innovation</span>."
+          </blockquote>
+          <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+            <div><div class="text-2xl font-bold text-white">2×</div><div class="text-xs text-slate-500 mt-1">Faster Delivery</div></div>
+            <div><div class="text-2xl font-bold text-white">99%</div><div class="text-xs text-slate-500 mt-1">Code Quality</div></div>
+            <div><div class="text-2xl font-bold text-white">∞</div><div class="text-xs text-slate-500 mt-1">Curiosity</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="relative py-32 px-6 lg:px-10">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="font-mono text-xs tracking-[0.3em] text-cyan-400 mb-4" data-aos="fade-up">// GET IN TOUCH</p>
+    <h2 class="font-[Space_Grotesk] text-4xl md:text-6xl font-bold text-white leading-tight" data-aos="fade-up">Let's build something <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-fuchsia-400 to-violet-400">great together</span>.</h2>
+    <p class="text-slate-400 mt-6 max-w-xl mx-auto" data-aos="fade-up">Open to enterprise engagements, technical leadership roles, and architecture consulting.</p>
+
+    <div class="mt-12 flex flex-wrap justify-center gap-4" data-aos="fade-up">
+      <a href="mailto:mohanasundaram.dev@gmail.com" class="magnetic inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-cyan-400 to-fuchsia-500 text-black font-semibold text-sm shadow-[0_0_40px_-10px_rgba(34,211,238,0.7)]">
+        <i data-lucide="mail" class="w-4 h-4"></i> Email Me
+      </a>
+      <a href="https://github.com/" target="_blank" rel="noopener" class="magnetic inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/15 hover:border-cyan-400/50 hover:bg-white/5 text-sm transition"><i data-lucide="github" class="w-4 h-4"></i> GitHub</a>
+      <a href="https://linkedin.com/" target="_blank" rel="noopener" class="magnetic inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/15 hover:border-cyan-400/50 hover:bg-white/5 text-sm transition"><i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn</a>
+      <a href="assets/Mohanasundaram_N_Resume.pdf" download class="magnetic inline-flex items-center gap-2 px-6 py-3.5 rounded-full border border-white/15 hover:border-cyan-400/50 hover:bg-white/5 text-sm transition"><i data-lucide="download" class="w-4 h-4"></i> Resume</a>
+    </div>
+
+    <div class="mt-16 grid sm:grid-cols-3 gap-6 text-left">
+      <div class="glass-card p-5"><i data-lucide="map-pin" class="w-5 h-5 text-cyan-400 mb-3"></i><div class="text-xs text-slate-500">LOCATION</div><div class="text-white font-medium mt-1">Tamil Nadu, India</div></div>
+      <div class="glass-card p-5"><i data-lucide="languages" class="w-5 h-5 text-fuchsia-400 mb-3"></i><div class="text-xs text-slate-500">LANGUAGES</div><div class="text-white font-medium mt-1">Tamil · English</div></div>
+      <div class="glass-card p-5"><i data-lucide="briefcase" class="w-5 h-5 text-violet-400 mb-3"></i><div class="text-xs text-slate-500">STATUS</div><div class="text-white font-medium mt-1">Open to Opportunities</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="relative border-t border-white/5 py-12 px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 items-center">
+    <div>
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-lg bg-gradient-to-br from-cyan-400 to-fuchsia-500 flex items-center justify-center font-bold text-black">M</div>
+        <span class="font-[Space_Grotesk] font-semibold text-white">Mohanasundaram N</span>
+      </div>
+      <p class="text-slate-500 text-sm mt-3">Building scalable enterprise applications with modern engineering workflows and AI-assisted development.</p>
+    </div>
+    <p class="text-center text-slate-400 text-sm italic">"Engineering scalable solutions with performance, precision, and innovation."</p>
+    <p class="md:text-right text-slate-600 text-xs">© 2026 Mohanasundaram N. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script src="script.js"></script>
 </body>
-
 </html>
